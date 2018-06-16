@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        char[] arr = s.toCharArray();
+        String newWord = "";
+        int count = 1;
+        for(int x = 0; x < arr.length; x++)
+        {
+            if(Character.isUpperCase(arr[x]))
+            {
+                count++;
+            }     
+        }
+        System.out.println(count);
+    }
+}

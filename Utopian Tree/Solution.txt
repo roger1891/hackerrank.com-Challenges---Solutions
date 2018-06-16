@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    static void growth(int[] cycles)
+    {
+        int result = 1;
+        for(int x = 0; x < cycles.length; x++)
+        {
+            for(int y = 0; y < cycles[x]; y++)
+            {
+                if(y % 2 == 0)
+                {
+                    result*=2;
+
+                }
+                else
+                {
+                    result++;
+                }               
+            }
+            System.out.println(result);
+            result =1;
+        }
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scan = new Scanner(System.in);
+        int testCaseNums = scan.nextInt();
+        int[] cycles = new int[testCaseNums];
+        for(int x = 0; x < testCaseNums; x++)
+        {
+            cycles[x] = scan.nextInt();
+        }
+        growth(cycles);
+    }
+}

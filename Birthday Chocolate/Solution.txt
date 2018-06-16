@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int solve(int n, int[] s, int d, int m){
+        // Complete this function
+        int sum = 0;
+        int sumCount = 0;
+        int count = 0;
+        for(int x = 0; x < n; x++)
+        {   
+            count = x;
+            for(int y = 0; y < m; y++)
+            { 
+                if(count < n)
+                {
+                    sum+= s[count];
+                    count++;                   
+                }
+            }
+            if(sum == d)
+            {
+                sumCount++;
+            }
+            sum = 0;      
+        }
+        return sumCount;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt(); //no. of squares in row
+        int[] s = new int[n]; //
+        for(int s_i=0; s_i < n; s_i++){
+            s[s_i] = in.nextInt();
+        }
+        int d = in.nextInt();
+        int m = in.nextInt();
+        int result = solve(n, s, d, m);
+        System.out.println(result);
+    }
+}

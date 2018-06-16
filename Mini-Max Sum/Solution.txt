@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    static String maxMin(long[] arr)
+    {
+        long max = 0, min =0, sum = 0;
+        String maxMin = "";
+        for(int x = 0; x < arr.length; x++)
+        {
+            sum+=arr[x];
+        }     
+        Arrays.sort(arr);
+        min = sum-arr[arr.length-1];
+        max = sum-arr[0];
+        maxMin = min + " " + max;
+        return maxMin; 
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        long[] arr = new long[5];
+        for(int arr_i=0; arr_i < 5; arr_i++){
+            arr[arr_i] = in.nextLong();
+        }
+        System.out.println(maxMin(arr));
+    }
+}

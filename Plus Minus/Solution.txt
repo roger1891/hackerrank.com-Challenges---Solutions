@@ -1,0 +1,63 @@
+import java.io.*;
+import java.util.*;
+import java.math.BigDecimal;
+
+public class Solution { 
+    static String fractionOf(int[] numbers, int request)
+    {
+        double answer = 0;
+        int count = 0;
+        if(request > 0) //positive no.
+        {
+           for(int x = 0; x < numbers.length; x++)
+           {
+               if(numbers[x] > 0)
+               {
+                   count++;
+               }
+           }
+           answer = (double)count/numbers.length;
+        }
+        if(request < 0) //negative no.
+        {
+           for(int x = 0; x < numbers.length; x++)
+           {
+               if(numbers[x] < 0)
+               {
+                   count++;
+               }
+           }
+           answer = (double)count/numbers.length;
+        }
+        if(request == 0) //zero no.
+        {
+           for(int x = 0; x < numbers.length; x++)
+           {
+               if(numbers[x] == 0)
+               {
+                   count++;
+               }
+           }
+           answer = (double)count/numbers.length;
+        }   
+        
+        return String.format("%.6f", answer);
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        int size = in.nextInt();
+        int[] numbers = new int[size];
+        
+        for(int x = 0; x < size; x++)
+        {
+            numbers[x] = in.nextInt();
+        }
+        
+        System.out.println(fractionOf(numbers, 1)); //positive
+        System.out.println(fractionOf(numbers, -1)); //negative
+        System.out.println(fractionOf(numbers, 0)); // zero
+        
+    }
+}

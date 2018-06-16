@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    static int counter(int[] fruits, int fruitLocation,int rangeStart, int rageEnd)
+    {
+        int count = 0;
+        for(int x = 0; x < fruits.length; x++)
+        {
+            fruits[x] = fruits[x]+fruitLocation;
+        }
+        for(int x = 0; x < fruits.length; x++)
+        {
+            if(fruits[x] >= rangeStart && fruits[x] <=rageEnd)
+            {
+                count++;
+            }
+        }  
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int s = in.nextInt();
+        int t = in.nextInt();
+        int a = in.nextInt();
+        int b = in.nextInt();
+        int m = in.nextInt();
+        int n = in.nextInt();
+        int[] apple = new int[m];
+        for(int apple_i=0; apple_i < m; apple_i++){
+            apple[apple_i] = in.nextInt();
+        }
+        int[] orange = new int[n];
+        for(int orange_i=0; orange_i < n; orange_i++){
+            orange[orange_i] = in.nextInt();
+        }
+        
+        System.out.println(counter(apple,a,s,t));
+        System.out.println(counter(orange,b,s,t));
+    }
+}

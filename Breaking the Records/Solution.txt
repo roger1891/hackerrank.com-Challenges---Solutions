@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int[] getRecord(int[] s){
+        // Complete this function
+        int min = s[0]; 
+        int max = s[0];
+        int minCount = 0;
+        int maxCount = 0;
+        int[] scoreCount = new int[2];
+        for(int x = 0; x < s.length; x++)
+        {
+            if(min < s[x])
+            {
+                min = s[x];
+                minCount++;
+            }
+            if(max > s[x])
+            {
+                max = s[x];
+                maxCount++;
+            }            
+        }
+        scoreCount[0] = minCount;
+        scoreCount[1] = maxCount;
+        return scoreCount;      
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] s = new int[n];
+        for(int s_i=0; s_i < n; s_i++){
+            s[s_i] = in.nextInt();
+        }
+        int[] result = getRecord(s);
+        String separator = "", delimiter = " ";
+        for (Integer val : result) {
+            System.out.print(separator + val);
+            separator = delimiter;
+        }
+        System.out.println("");
+    }
+}

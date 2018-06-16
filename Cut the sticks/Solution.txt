@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scan = new Scanner(System.in);
+        int size = scan.nextInt();
+        List<Integer> myList = new ArrayList<Integer>();
+        for(int x = 0; x < size; x++)
+        {
+            myList.add(scan.nextInt());
+        }
+        Collections.sort(myList);
+        
+        while(myList.size() > 0)
+        {
+            System.out.println(myList.size());
+            int min = myList.get(0);
+            for(int x = 0; x < myList.size(); x++)
+            {
+                if(myList.get(x) == min)
+                {
+                    myList.remove(x);
+                }    
+            }
+        }
+    }
+}

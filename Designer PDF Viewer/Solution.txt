@@ -1,0 +1,110 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    static int highlightWord(int[] numberLetterEquivalents, String word)
+    {
+        int number = 0, max = 0, highligtArea = 0;
+        word= word.toLowerCase();
+        for(int x = 0; x < word.length(); x++)
+        {
+            switch(word.charAt(x))
+            {
+                case 'a':
+                   number = numberLetterEquivalents[0];
+                   break;
+                case 'b':
+                   number = numberLetterEquivalents[1];
+                   break;
+                case 'c':
+                   number = numberLetterEquivalents[2];
+                   break;
+                case 'd':
+                   number = numberLetterEquivalents[3];
+                   break;
+                case 'e':
+                   number = numberLetterEquivalents[4];
+                   break;
+                case 'f':
+                   number = numberLetterEquivalents[5];
+                   break;
+                case 'g':
+                   number = numberLetterEquivalents[6];
+                   break;
+                case 'h':
+                   number = numberLetterEquivalents[7];
+                   break;
+                case 'i':
+                   number = numberLetterEquivalents[8];
+                   break;  
+                case 'j':
+                   number = numberLetterEquivalents[9];
+                   break;
+                case 'k':
+                   number = numberLetterEquivalents[11];
+                   break;
+                case 'l':
+                   number = numberLetterEquivalents[12];
+                   break;
+                case 'm':
+                   number = numberLetterEquivalents[13];
+                   break;
+                case 'n':
+                   number = numberLetterEquivalents[14];
+                   break;
+                case 'o':
+                   number = numberLetterEquivalents[15];
+                   break;
+                case 'p':
+                   number = numberLetterEquivalents[16];
+                   break;
+                case 'q':
+                   number = numberLetterEquivalents[17];
+                   break;
+                case 'r':
+                   number = numberLetterEquivalents[18];
+                   break;
+                case 's':
+                   number = numberLetterEquivalents[19];
+                   break;
+                case 't':
+                   number = numberLetterEquivalents[20];
+                   break;
+                case 'u':
+                   number = numberLetterEquivalents[21];
+                   break;
+                case 'v':
+                   number = numberLetterEquivalents[22];
+                   break;
+                case 'x':
+                   number = numberLetterEquivalents[23];
+                   break;
+                case 'y':
+                   number = numberLetterEquivalents[24];
+                   break;
+                case 'z':
+                   number = numberLetterEquivalents[25];
+                   break;
+                default:
+                   number = -1;
+                   break;
+            }   
+            max = (max > number)?max:number;
+        }
+        highligtArea = word.length() * 1 * max;
+        return highligtArea;
+        
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int[] h = new int[26];
+        for(int h_i=0; h_i < 26; h_i++){
+            h[h_i] = in.nextInt();
+        }
+        String word = in.next();
+        System.out.println(highlightWord(h, word));
+    }
+}

@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    static String catchResult(int catA, int catB, int mouseC)
+    {
+        int diffA = Math.abs(mouseC-catA);//3-1 =2
+        int diffB = Math.abs(mouseC-catB);//3-2 =1
+        if(diffA < diffB)
+        {
+            return "Cat A";
+        }
+        else if(diffB < diffA)
+        {
+           return "Cat B"; 
+        }
+        return "Mouse C";
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int q = in.nextInt();
+        String result = "";
+        for(int a0 = 0; a0 < q; a0++){
+            int x = in.nextInt();
+            int y = in.nextInt();
+            int z = in.nextInt();
+            result = catchResult(x,y,z);
+            System.out.println(result); 
+        }
+    }
+}

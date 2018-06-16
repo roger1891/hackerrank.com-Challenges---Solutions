@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    static void vehicleClearance(int[] freewaySizes, int[][] cases)
+    {
+        int vehicleType = 3;
+        for(int x = 0; x < cases.length; x++)
+        {
+            int entry = cases[x][0];
+            int exit = cases[x][1];
+            for(int z = entry; z <= exit; z++)
+            {           
+                if(vehicleType > freewaySizes[z])
+                {
+                    vehicleType = freewaySizes[z];
+                }
+                //System.out.print(freewaySizes[z]);
+            }
+            System.out.println(vehicleType);
+            //System.out.println("");
+            vehicleType = 3;
+        }
+    }
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scan = new Scanner(System.in);
+        int numOfFreewaySizes = scan.nextInt();
+        int numOfTestCases = scan.nextInt();
+        int[] freewaySizes = new int[numOfFreewaySizes];
+        for(int x = 0; x <numOfFreewaySizes; x++ )
+        {
+            freewaySizes[x] = scan.nextInt();
+        }
+        int points = 2;
+        int[][] cases = new int[numOfTestCases][points];
+        for(int x = 0; x < numOfTestCases; x++)
+        {
+            for(int y = 0; y <points; y++ )
+            {
+                cases[x][y] = scan.nextInt();
+            }
+        }
+        scan.close();
+        vehicleClearance(freewaySizes, cases);
+    }
+}

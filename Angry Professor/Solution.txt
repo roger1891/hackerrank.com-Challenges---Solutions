@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scan = new Scanner(System.in);
+        int noOfTestCases = scan.nextInt();
+        int count = 0;
+        int early = 0;
+        for(int x = 0; x < noOfTestCases; x++)
+        {
+            int studentNum = scan.nextInt();
+            int studentLimit = scan.nextInt();
+            
+            for(int y = 0; y < studentNum; y++)
+            {
+                int studentTimes = scan.nextInt();
+                if(studentTimes <= 0)
+                {
+                    early++;
+                }
+            }
+            if(early >= studentLimit)
+            {
+                System.out.println("NO");
+            }
+            else
+            {
+                System.out.println("YES");
+            }
+            early = 0;
+        }
+       
+    }
+}

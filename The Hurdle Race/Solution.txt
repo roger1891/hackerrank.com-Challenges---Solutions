@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    static int drinkMagic(int[] height, int maxHeightJump)
+    {
+        int maxHeightHurdle = height[0];
+        
+        for(int x = 0; x < height.length; x++)
+        {
+            maxHeightHurdle = (maxHeightHurdle > height[x]?maxHeightHurdle: height[x]);     
+        }  
+        
+        //magic drink needed if hurdle is higher than maxHeightJump
+        if(maxHeightHurdle - maxHeightJump > 0)
+        {
+            return maxHeightHurdle - maxHeightJump;
+        }
+        //no magic drink needed since hurdle is lower than maxHeightJump
+        return 0;
+         
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        int[] height = new int[n];
+        for(int height_i=0; height_i < n; height_i++){
+            height[height_i] = in.nextInt();
+        }
+        // your code goes here
+        int result = drinkMagic(height, k);
+        System.out.println(result);
+    }
+}

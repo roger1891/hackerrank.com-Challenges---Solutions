@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    static void count(int[] testCases)
+    {
+        String stringCase = "";
+        int digit = 0, count = 0;
+        
+        for(int x = 0; x < testCases.length; x++)
+        {
+            stringCase = Integer.toString(testCases[x]);
+            for(int y = 0; y < stringCase.length(); y++)
+            {
+                digit = Integer.parseInt(stringCase.substring(y, y+1));
+                try
+                {
+                    if(testCases[x]%digit == 0)
+                    {
+                        count++;
+                    }                   
+                }
+                catch(ArithmeticException e)
+                {
+                    e.getMessage();   
+                }
+
+            }
+            System.out.println(count);
+            count =0;
+        }
+    }
+    
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scan = new Scanner(System.in);
+        int noTestCases = scan.nextInt();
+        int[] testCases = new int[noTestCases];
+        for(int x = 0; x < noTestCases; x++)
+        {
+            testCases[x] = scan.nextInt();
+        }
+        count(testCases);
+        
+    }
+}

@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    static int invertNumber(int num)
+    {
+        String numToString = Integer.toString(num);
+        int stringLength = numToString.length();
+        char[] arr =  numToString.toCharArray();
+        String reversedString = "";
+        for(int x = stringLength-1; x >= 0; x--)
+        {
+            reversedString+= arr[x];
+        }
+        int stringToNum = Integer.parseInt(reversedString);
+        return stringToNum;
+    }
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scan = new Scanner(System.in);
+        int start = scan.nextInt();
+        int end = scan.nextInt();
+        int divider = scan.nextInt();
+        int length = end-start;
+        int answer = 0;
+        //create range
+        for(int x = start; x <= end; x++)
+        {
+            //reverse number of current range
+            //get absolute value
+            //divide by divider
+            if(Math.abs(x-invertNumber(x))%divider == 0) // whole number
+            {
+                answer++;
+            }       
+        }
+        System.out.println(answer);    
+    }
+}

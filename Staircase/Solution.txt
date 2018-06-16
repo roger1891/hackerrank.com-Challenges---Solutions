@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    static void printer(int size)
+    {
+        int counter =size-1;
+        for(int x = 0; x < size; x++)
+        {
+            for(int y = 0; y < size; y++)
+            {
+                if(y < counter)
+                {
+                    System.out.print(" ");
+                    
+                }
+                else
+                {
+                   System.out.print("#");
+                }
+            }  
+            counter--;
+            System.out.println(""); 
+        }     
+    }
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+       printer(in.nextInt());
+    }
+}
